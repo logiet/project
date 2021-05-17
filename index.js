@@ -37,7 +37,10 @@ app.use("*", (req, res, next) => {
   next();
 });
 
-mongoose.connect("mongodb://localhost/dbforapp", { useNewUrlParser: true });
+mongoose.connect(
+  "mongodb+srv://vuelie:Frozenisbest1@cluster0.iwdd8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  { useNewUrlParser: true }
+);
 
 app.get("/", index);
 app.get("/about", about);
