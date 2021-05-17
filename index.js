@@ -16,6 +16,7 @@ const expressSession = require("express-session");
 const loginlock = require("./middleware/loginlock.js");
 const logout = require("./controllers/logout.js");
 const flash = require("connect-flash");
+const PORT = process.env.PORT || 4000;
 
 const app = new express();
 app.use(flash());
@@ -50,6 +51,6 @@ app.post("/users/login", loginlock, loginuser);
 app.get("/logout", logout);
 app.use((req, res) => res.render("notfound"));
 
-app.listen(4000, () => {
-  console.log("App listening on port 4000");
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
